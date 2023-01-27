@@ -17,6 +17,7 @@ class ListNode:
     val_list = list()
 
     def values(self):
+        """:return a list of values in each node in order"""
         if self.val is None:
             return list()
         if self.nxt is None:
@@ -26,9 +27,11 @@ class ListNode:
         return self.nxt.values()
 
     def sort(self, list_val=None, i=0):
+        """:return None
+            sort the values in every node in ascending order"""
         if self.val is None:
             return
-        if i == 0:
+        if i == 0:  # Avoid other nodes' lists of values being used
             list_val = self.values()
             list_val.sort()
         if i != 0:
@@ -36,10 +39,10 @@ class ListNode:
         if self.nxt is not None:
             self.val = list_val[0]
             list_val.pop(0)
-            return self.nxt.sort(list_val, i + 1)
+            return self.nxt.sort(list_val, i + 1)  # Re-use the list of values
         else:
             self.val = list_val[0]
-            list_val.pop(0)
+            list_val.pop(0)  # Make sure the val_list attributes is not affected
             return
 
 
@@ -62,6 +65,9 @@ if __name__ == "__main__":
 
     list3 = ListNode(1, ListNode(2, ListNode(1, ListNode(2, ListNode(4, ListNode(3, ListNode(5)))))))
     sort_list3 = ListNode(1, ListNode(1, ListNode(2, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))))
-    
-    list3.sort()
-    print(list3 == sort_list3)
+
+    list_null = ListNode(None)
+    list_null2 = ListNode(None)
+    list_null.extend(list_null2)
+    list_null.sort()
+    print(list_null == ListNode(None))
