@@ -24,7 +24,7 @@ class ListNode:
             self.val_list.append(self.val)
             return self.val_list
         self.val_list.append(self.val)
-        return self.nxt.values()
+        return self.nxt.values()  # Keep moving to the next node until it's the last one.
 
     def sort(self, list_val=None, i=0):
         """:return None
