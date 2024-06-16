@@ -1,5 +1,6 @@
 /**
  * Find the longest common prefix in an array of strings
+ * Worst case: O(n * m) where n is the number of strings and m is the length of the found prefix
  */
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {
