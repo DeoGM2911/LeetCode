@@ -26,8 +26,8 @@ class Solution(object):
         # Recursive case
         else:
             n = len(nums) // 2
-            m1, c1 = majorityElement(nums[:n])
-            m2, c2 = majorityElement(nums[n:])
+            m1, c1 = self.majorityElementRecursive(nums[:n])
+            m2, c2 = self.majorityElementRecursive(nums[n:])
             # Count in the opposite half
             for i in range(n):
                 if nums[i] == m2: c2 += 1
